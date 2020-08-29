@@ -1,0 +1,25 @@
+<h1>Authors Listing</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @creators.each do |creator| %>
+            <tr>
+                <td><%= creator.author %></td>
+                <td><%= link_to "Show", creator_path(creator) %></td>
+                <td><%= link_to "Edit", edit_creator_path(creator) %></td>
+                <td><%= link_to "Delete", creator_path(creator), method: :delete, data: { confirm: "Are you sure you want to delete this?"} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<p>
+    <%= link_to "Add creator", new_creator_path() %>
+</p>

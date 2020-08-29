@@ -1,0 +1,18 @@
+<% if @quotation.errors.any? %>
+  <h2>The following errors prevented the quotation from being saved.</h2>
+  <ul>
+    <% @quotation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @quotation, local: true) do |f| %>
+    <p>
+        <%= f.label :quote %>
+        <%= f.text_field :quote %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

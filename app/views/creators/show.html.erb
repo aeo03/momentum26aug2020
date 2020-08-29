@@ -1,0 +1,20 @@
+<h1>Show Author</h1>
+<p><strong>Author: </strong><%= @creator.author %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Quote</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @quotations.each do |quotation| %>
+            <tr>
+                <td><%= quotation.quote %></td>                
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "Return to creators listing", creators_path() %>

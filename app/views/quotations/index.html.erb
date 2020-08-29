@@ -1,0 +1,24 @@
+<h1>Quotation Listing</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Author</th>
+            <th>Quote</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @quotations.each do |quotation| %>
+            <tr>
+                <td><%= quotation.creator.author if quotation.creator %>
+                <td><%= quotation.quote %></td>
+                <td><%= link_to "Show", quotation_path(quotation) %></td>
+                <td><%= link_to "Edit", edit_quotation_path(quotation) %></td>
+                <td><%= link_to "Delete", quotation_path(quotation), method: :delete %></td>             
+        <% end %>
+    </tbody>
+</table>
+<p>
+    <%= link_to "Add quotation", new_quotation_path() %>
+</p>

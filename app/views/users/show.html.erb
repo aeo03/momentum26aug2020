@@ -1,0 +1,12 @@
+<h3><strong>Logged in as User: </strong><%= User.find(session[:user_id]).username %></h3>
+<p><%= link_to "Logout", logout_user_path(), class: "btn btn-primary", method: :delete %></p>
+<h1>Show User</h1>
+<p><strong>User: </strong><%= @user.username %>
+<p><strong>Email: </strong><%= @user.email %></br>
+
+<%= link_to "Edit", edit_user_path(@user) %>
+<%= link_to "Delete", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
+<%= link_to "Return to user listing", users_path() %>
+
+
+  

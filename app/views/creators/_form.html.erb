@@ -1,0 +1,18 @@
+<% if @creator.errors.any? %>
+  <h2>The following errors prevented the creator from being saved.</h2>
+  <ul>
+    <% @creator.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @creator, local: true) do |f| %>
+    <p>
+      <%= f.label :author %><br/>
+      <%= f.text_field :author %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
