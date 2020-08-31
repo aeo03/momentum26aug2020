@@ -14,11 +14,15 @@
                 <td><%= quotation.creator.author if quotation.creator %>
                 <td><%= quotation.quote %></td>
                 <td><%= link_to "Show", quotation_path(quotation) %></td>
-                <td><%= link_to "Edit", edit_quotation_path(quotation) %></td>
-                <td><%= link_to "Delete", quotation_path(quotation), method: :delete %></td>             
+                <% if logged_in? && current_user.admin? %>
+                    <td><%= link_to "Edit", edit_quotation_path(quotation) %></td>
+                    <td><%= link_to "Delete", quotation_path(quotation), method: :delete %></td>
+                <% end %>             
         <% end %>
     </tbody>
 </table>
-<p>
-    <%= link_to "Add quotation", new_quotation_path() %>
-</p>
+
+<% if logged_in? && current_user.admin? %>
+    <p><%= link_to "Add quotation", new_quotation_path() %></p>
+<% end %>
+

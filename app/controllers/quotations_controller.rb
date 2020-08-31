@@ -9,12 +9,13 @@ class QuotationsController < ApplicationController
     end
 
     def new
+        @creators = Creator.all
         @quotation = Quotation.new
     end
 
     def create
         @quotation = Quotation.new(quotation_params)
-        @quotation.creator = Creator.order(Arel.sql('RANDOM()')).first #gawing drop down to RSA
+        @creators = Creator.all
 
         if @quotation.save
             flash[:notice] = "Quotation was added successfully"
@@ -53,7 +54,7 @@ class QuotationsController < ApplicationController
     end
 
     def quotation_params
-        params.require(:quotation).permit(:quote)
+        params.require(:quotation).permit(:quote, :creator_id)
     end
 
 end

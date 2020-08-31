@@ -1,30 +1,22 @@
 <%= stylesheet_link_tag 'home_page', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 <div class="main-container">
-
     <div class="greetings">
-        <div><h1>11:40</h1></div> 
-        <div><h2>Good Morning, LJ</h2></div> 
-        <div><p>What is your focus for today?</p></div> 
+        <div class = "clock"><p>11:40</p></div> 
+        <div class = "greeting"><p>Good morning, LJ</p></div> 
+        <div class = "question"><p>What is your main focus for today?</p></div> 
+        <input type="text" class="text-line" />
     </div>
-
-    <div class="corm-group">
-        <%= form_with do |f| %>
-            <p>
-                <%= f.text_field :quote, :html => {:id => "form1"}, class: 'form-control' %>
-            </p>
-        <% end %>
-    </div>
-
 </div>
 
+<div class = "topright">
+    <p><%= link_to "Sign up", new_user_path(), class: "btn btn-primary" %></p>
+    <p><%= link_to "Login", login_user_path(), class: "btn btn-primary" %></p>
+</div>
 
-<div class= "container" >
-    <div class= "child">
+<div class= "content-container" >
+    <div class= "content">
             <p><%= @rand_quote %></p>
             <p><%= @rand_author %></p>
-            <p><%= link_to "Sign up", new_user_path(), class: "btn btn-primary" %></p>
-            <p><%= link_to "Login", login_user_path(), class: "btn btn-primary" %></p>
     </div>
 </div>
-

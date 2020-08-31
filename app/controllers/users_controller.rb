@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        session[:user_id] = @user.id
         if @user.save
             flash[:notice] = "User was created successfully."
             redirect_to root_path
@@ -41,6 +42,10 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         redirect_to users_path
+    end
+
+    def author
+        @arr_authors = Creator.pluck(:author)
     end
 
     # def login

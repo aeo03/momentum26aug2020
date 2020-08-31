@@ -1,3 +1,28 @@
 <h1>Add Quotation</h1>
-<%= render 'form' %>
+
+<% if @quotation.errors.any? %>
+  <h2>The following errors prevented the quotation from being saved.</h2>
+  <ul>
+    <% @quotation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @quotation, local: true) do |f| %>
+    <p>
+        <%= f.label :quote %>
+        <%= f.text_field :quote %>
+    </p>
+    <%= f.label :author %>
+    <%= f.select :creator_id, @creators.map{ |c| [c.author, c.id] }%>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+
+
 <p><%= link_to "Return to quote listing", quotations_path %></p> 
+
+
