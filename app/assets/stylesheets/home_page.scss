@@ -22,14 +22,16 @@ html, body, .main-container {
     -webkit-align-items: center;
     align-items: center;
     justify-content: center;
+
 }
 
-.greetings, .main-container{
+.greetings{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-size: 150%; 
+  max-width: 50%;
+  font-size: 120%; 
 }
 
 .topright {
@@ -47,10 +49,11 @@ html, body, .main-container {
   transform: translateX(-50%);
   text-align: center;
   color: white; 
+  font-size: 90%;
 } 
 
 .clock {
-  font-size: 300%; 
+  font-size: 500%; 
 }
 
 .greeting {

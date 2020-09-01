@@ -7,6 +7,15 @@
         <div class = "question"><p>What is your main focus for today?</p></div> 
         <input type="text" class="text-line" />
     </div>
+
+    <div class= "content-container" >
+        <div class= "content">
+                <p><%= @rand_quote %></p>
+                <p><%= @rand_author %></p>
+    </div>
+</div>
+
+
 </div>
 
 <div class = "topright">
@@ -14,9 +23,3 @@
     <p><%= link_to "Login", login_user_path(), class: "btn btn-primary" %></p>
 </div>
 
-<div class= "content-container" >
-    <div class= "content">
-            <p><%= @rand_quote %></p>
-            <p><%= @rand_author %></p>
-    </div>
-</div>
