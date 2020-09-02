@@ -18,8 +18,11 @@
 
 </div>
 
-<div class = "topright">
-    <p><%= link_to "Sign up", new_user_path(), class: "btn btn-primary" %></p>
-    <p><%= link_to "Login", login_user_path(), class: "btn btn-primary" %></p>
-</div>
+<% if not logged_in? %>
+    <div class = "topright">
+        <p><%= link_to "Sign up", new_user_path(), class: "btn btn-primary" %></p>
+        <p><%= link_to "Login", login_user_path(), class: "btn btn-primary" %></p>
+    </div>
+<% end %>
+
 
