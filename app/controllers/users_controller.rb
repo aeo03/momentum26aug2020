@@ -44,6 +44,7 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
+    #Di na yata to ginamit
     def author
         @arr_authors = Creator.pluck(:author)
     end
