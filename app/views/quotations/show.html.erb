@@ -1,7 +1,19 @@
 <h1>Show Quotation</h1>
 
 <p><strong>Quote: </strong><%= @quotation.quote %></p>
-<p><strong>Author: </strong><%= @quotation.creator.author if @quotation.creator %></br></br>
+<p><strong>Author: </strong><%= @quotation.creator.author if @quotation.creator %>
+<p><strong>Tags: </strong></br>
+
+<tbody>
+        <% if @quotation.tags.present? %>
+            <% @quotation.tags.each do |tag| %>
+                <tr>
+                    <td><%= tag.tag_name %></td> 
+                </tr>       
+            <% end %>
+        <% end %>
+</tbody>
+</br></br>
 
 <%= link_to "Edit", edit_quotation_path(@quotation) %>
 <%= link_to "Delete", quotation_path(@quotation), method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>

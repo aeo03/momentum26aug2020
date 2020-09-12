@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "pages#home"
   
-  resources :quotations, :creators
+  resources :quotations, :creators, :tags
 
   get 'signup', to: 'users#new', as: 'new_user'
   resources :users, except: [:new]

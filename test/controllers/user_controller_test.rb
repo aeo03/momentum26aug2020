@@ -29,22 +29,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
 
     test "User should update" do
-        get edit_user_url(1)
-        assert_recognizes({ :controller => 'users',
-                        :action => 'update',
-                        :id => '1'},
-                        :path => 'users/1',
-                        :method => :patch)
-        # assert_response :redirect
+        patch user_url(@user), params: {user: { username: "username2", email: "Email2@email.com" , password: "password123" } }
+        assert_response :redirect
     end
 
-    test "User should delete" do
-        get user_url(1)
-        assert_recognizes({ :controller => 'users',
-                        :action => 'destroy',
-                        :id => '1' },
-                        :path => 'users/1',
-                        :method => :delete)
-        # assert_response :redirect
-    end
+    test 'User must be deleted' do
+        user = User.find_by(username:@user.username)
+        assert_difference "User.count", -1 do
+          delete user_url(user)
+        end
+      end
+
 end

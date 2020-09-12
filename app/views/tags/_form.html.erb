@@ -1,0 +1,18 @@
+<% if @tag.errors.any? %>
+  <h2>The following errors prevented the tag from being saved.</h2>
+  <ul>
+    <% @tag.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @tag, local: true) do |f| %>
+    <p>
+      <%= f.label :tag_name %><br/>
+      <%= f.text_field :tag_name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

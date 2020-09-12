@@ -1,0 +1,8 @@
+<h1>Show Tag</h1>
+
+<p><strong>Tag name: </strong><%= @tag.tag_name %></p>
+</br></br>
+
+<%= link_to "Edit", edit_tag_path(@tag) %>
+<%= link_to "Delete", tag_path(@tag), method: :delete, data: { confirm: "Are you sure you want to delete this?"} %>
+<%= link_to "Return to tag listing", tags_path() %>

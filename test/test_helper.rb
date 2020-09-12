@@ -11,7 +11,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
-  def sign_in_as(user)
-    post auth_user_path, params: { username: user.username, password: "password123" }
+    def sign_in_as(user)
+      post auth_user_path, params: { username: user.username, password: "password123" }
+    end
+
   end
-end
