@@ -12,6 +12,20 @@
         <div class= "content">
                 <p><%= @rand_quote %></p>
                 <p><%= @rand_author %></p>
+
+                <p>
+                <tbody>
+                    <% if @rand_tags.present? %>
+                        <% @rand_tags.each do |tag| %>
+                            <tr>
+                                <td><%= tag.tag_name %></td> 
+                            </tr>       
+                        <% end %>
+                    <% end %>
+                </tbody>
+                </p>                
+
+
     </div>
 </div>
 

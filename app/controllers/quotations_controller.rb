@@ -9,13 +9,14 @@ class QuotationsController < ApplicationController
     end
 
     def new
-        @creators = Creator.all
         @quotation = Quotation.new
+        @creators = Creator.all
+        @tags = Tag.all
+        
     end
 
     def create
         @quotation = Quotation.new(quotation_params)
-        @creators = Creator.all
 
         if @quotation.save
             flash[:notice] = "Quotation was added successfully"
@@ -27,6 +28,8 @@ class QuotationsController < ApplicationController
     end
 
     def edit
+        @creators = Creator.all
+        @tags = Tag.all
     end
 
     def update
@@ -54,7 +57,7 @@ class QuotationsController < ApplicationController
     end
 
     def quotation_params
-        params.require(:quotation).permit(:quote, :creator_id)
+        params.require(:quotation).permit(:quote, :creator_id, tag_ids: [])
     end
 
 end

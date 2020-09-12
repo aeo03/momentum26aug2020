@@ -1,0 +1,30 @@
+<h3><strong>Logged in as User: </strong><%= User.find(session[:user_id]).username %></h3>
+<p><%= link_to "Logout", logout_user_path(), class: "btn btn-primary", method: :delete %></p>
+<h1>Tags Listing</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Tag</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @tags.each do |tag| %>
+            <tr>
+                <td><%= tag.tag_name %></td>
+                <td><%= link_to "Show", tag_path(tag) %></td>
+                
+                <% if logged_in? && current_user.admin? %>
+                    <td><%= link_to "Edit", edit_tag_path(tag) %></td>
+                    <td><%= link_to "Delete", tag_path(tag), method: :delete, data: { confirm: "Are you sure you want to delete this?"} %></td>
+                <% end %>
+                
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<% if logged_in? && current_user.admin? %>
+<p><%= link_to "Add tags", new_tag_path() %></p>
+<% end %>
