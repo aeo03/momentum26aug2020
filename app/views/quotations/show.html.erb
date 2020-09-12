@@ -5,10 +5,12 @@
 <p><strong>Tags: </strong></br>
 
 <tbody>
-        <% @quotation.tags.each do |tag| %>
-            <tr>
-                <td><%= tag.tag_name if @quotation.tags %></td> 
-            </tr>       
+        <% if @quotation.tags.present? %>
+            <% @quotation.tags.each do |tag| %>
+                <tr>
+                    <td><%= tag.tag_name %></td> 
+                </tr>       
+            <% end %>
         <% end %>
 </tbody>
 </br></br>
