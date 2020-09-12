@@ -8,17 +8,17 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
         sign_in_as(@user)
     end
 
-    test "7. should get index" do
+    test "1. should get index" do
         get tags_url
         assert_response :success
     end
 
-    test "8. should get new" do
+    test "2. should get new" do
         get new_tag_url
         assert_response :success
     end
 
-    test "9. should create Tag" do
+    test "3. should create Tag" do
         post tags_url, params: {tag: { tag_name: "tag name"} } 
         assert_response :redirect
     end

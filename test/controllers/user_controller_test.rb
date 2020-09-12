@@ -23,17 +23,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         assert_response :redirect
     end
 
-    test "4. should get edit" do
+    test "1. should get edit" do
         get edit_user_url(1)
         assert_response :success
     end
 
-    test "5. User should update" do
+    test "2. User should update" do
         patch user_url(@user), params: {user: { username: "username2", email: "Email2@email.com" , password: "password123" } }
         assert_response :redirect
     end
 
-    test '6. User must be deleted' do
+    test '3. User must be deleted' do
         user = User.find_by(username:@user.username)
         assert_difference "User.count", -1 do
           delete user_url(user)
