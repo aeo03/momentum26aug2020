@@ -44,25 +44,6 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
-    #Di na yata to ginamit
-    def author
-        @arr_authors = Creator.pluck(:author)
-    end
-
-    # def login
-    # end
-
-    # def auth
-    #     user = User.find_by(username: params[:username])
-    #     if user.authenticate(params[:password])
-    #         flash[:notice] = "login successfully."
-    #         redirect_to root_path
-    #     else
-    #         flash[:flash] = "login unsuccessfully."
-    #         render "login"
-    #     end
-    # end
-
     private
 
     def set_user
