@@ -8,32 +8,32 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
         sign_in_as(@user)
     end
 
-    test "should get index" do
+    test "1. should get index" do
         get users_url
         assert_response :success
     end
 
-    test "should get new" do
+    test "2. should get new" do
         get new_user_url
         assert_response :success
     end
 
-    test "should create User" do
+    test "3. should create User" do
         post users_url, params: {user: { username: "username1", email: "Email1@email.com" , password: "password123" } } 
         assert_response :redirect
     end
 
-    test "should get edit" do
+    test "4. should get edit" do
         get edit_user_url(1)
         assert_response :success
     end
 
-    test "User should update" do
+    test "5. User should update" do
         patch user_url(@user), params: {user: { username: "username2", email: "Email2@email.com" , password: "password123" } }
         assert_response :redirect
     end
 
-    test 'User must be deleted' do
+    test '6. User must be deleted' do
         user = User.find_by(username:@user.username)
         assert_difference "User.count", -1 do
           delete user_url(user)
