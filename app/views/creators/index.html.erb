@@ -1,3 +1,5 @@
+<h3><strong>Logged in as User: </strong><%= User.find(session[:user_id]).username %></h3>
+<p><%= link_to "Logout", logout_user_path(), class: "btn btn-primary", method: :delete %></p>
 <h1>Authors Listing</h1>
 
 <table>

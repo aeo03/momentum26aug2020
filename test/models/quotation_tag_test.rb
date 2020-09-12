@@ -14,17 +14,17 @@ class QuotationTagTest < ActiveSupport::TestCase
     @qt = QuotationTag.new(tag_id: @tag.id, quotation_id: @quotation.id)
   end
 
-  test "should not save Quotation Tag without tag id" do
+  test "11. should not save Quotation Tag without tag id" do
     @qt.tag_id = nil
     assert_not @qt.save, "Saved the Quotation Tag without tag id"
   end
 
-  test "should not save Quotation Tag without quotation id" do
+  test "12. should not save Quotation Tag without quotation id" do
     @qt.quotation_id = nil
     assert_not @qt.save, "Saved the Quotation Tag without quotation id"
   end
 
-  test "should save Quotation Tag" do
+  test "13. should save Quotation Tag" do
     assert @qt.save
   end
 
